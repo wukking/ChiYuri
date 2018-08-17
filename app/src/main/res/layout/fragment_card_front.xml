@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#a6c"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="?android:textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="标题"
+        android:textColor="#fff"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/my_view"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:lineSpacingMultiplier="1.2"
+        android:text="描述"
+        android:textAllCaps="true"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+</LinearLayout>

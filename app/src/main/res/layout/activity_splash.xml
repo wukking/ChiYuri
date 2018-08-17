@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.SplashActivity"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/img_bg"
+        android:layout_width="263dp"
+        android:layout_height="37dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        tools:src="@drawable/img_slogan" />
+
+    <ImageView
+        android:id="@+id/img_icon"
+        android:layout_width="186dp"
+        android:layout_height="186dp"
+        android:src="@drawable/icon_qwd_logo"
+        android:layout_centerInParent="true" />
+</RelativeLayout>
