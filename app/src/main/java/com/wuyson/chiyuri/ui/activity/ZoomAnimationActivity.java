@@ -70,6 +70,7 @@ public class ZoomAnimationActivity extends BaseActivity {
 
         float pixelPerSecond = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, velocity, getResources().getDisplayMetrics());
 
+
 // Registering the update listener
         anim1X.addUpdateListener(new DynamicAnimation.OnAnimationUpdateListener() {
 
