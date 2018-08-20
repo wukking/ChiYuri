@@ -17,6 +17,14 @@
             android:src="@drawable/icon_qwd_logo"
             android:scaleType="centerCrop" />
 
+        <ImageButton
+            android:id="@+id/thumb_button_2"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginRight="1dp"
+            android:src="@drawable/icon_qwd_logo"
+            android:scaleType="centerCrop" />
+
     </LinearLayout>
 
     <!-- This initially-hidden ImageView will hold the expanded/zoomed version of

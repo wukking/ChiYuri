@@ -8,8 +8,13 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.animation.DynamicAnimation;
+import android.support.animation.SpringAnimation;
+import android.support.animation.SpringForce;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.VelocityTracker;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
@@ -31,13 +36,68 @@ public class ZoomAnimationActivity extends BaseActivity {
     @Override
     protected void initView(Bundle savedInstanceState) {
         final View thumb1View = findViewById(R.id.thumb_button_1);
+
+        final View view2 = findViewById(R.id.thumb_button_2);
+
+        SpringAnimation anim = new SpringAnimation(thumb1View, DynamicAnimation.TRANSLATION_Y, 0);
+        //Setting the damping ratio to create a low bouncing effect.
+        anim.getSpring().setDampingRatio(SpringForce.DAMPING_RATIO_LOW_BOUNCY);
+        //Setting the spring with a low stiffness.
+        anim.getSpring().setStiffness(SpringForce.STIFFNESS_LOW);
+        anim.setStartValue(-700);
+        anim.start();
+
+//        另一种设置force
+//        SpringForce force = new SpringForce();
+//        force.setDampingRatio(SpringForce.DAMPING_RATIO_LOW_BOUNCY);
+//        force.setStiffness(SpringForce.STIFFNESS_LOW);
+//        anim.setSpring(force);
+
+        // Setting up a spring animation to animate the view1 and view2 translationX and translationY properties
+        final SpringAnimation anim1X = new SpringAnimation(thumb1View,
+                DynamicAnimation.TRANSLATION_X);
+        final SpringAnimation anim1Y = new SpringAnimation(thumb1View,
+                DynamicAnimation.TRANSLATION_Y);
+        final SpringAnimation anim2X = new SpringAnimation(view2,
+                DynamicAnimation.TRANSLATION_X);
+        final SpringAnimation anim2Y = new SpringAnimation(view2,
+                DynamicAnimation.TRANSLATION_Y);
+        VelocityTracker vt = VelocityTracker.obtain();
+        vt.computeCurrentVelocity(1000);
+        float velocity = vt.getYVelocity();
+        anim.setStartVelocity(velocity);
+        vt.recycle();
+
+        float pixelPerSecond = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, velocity, getResources().getDisplayMetrics());
+
+// Registering the update listener
+        anim1X.addUpdateListener(new DynamicAnimation.OnAnimationUpdateListener() {
+
+            // Overriding the method to notify view2 about the change in the view1’s property.
+            @Override
+            public void onAnimationUpdate(DynamicAnimation dynamicAnimation, float value,
+                                          float velocity) {
+                anim2X.animateToFinalPosition(value);
+            }
+        });
+
+        anim1Y.addUpdateListener(new DynamicAnimation.OnAnimationUpdateListener() {
+
+            @Override
+            public void onAnimationUpdate(DynamicAnimation dynamicAnimation, float value,
+                                          float velocity) {
+                anim2Y.animateToFinalPosition(value);
+            }
+        });
+
+//        anim1X.start();
+
         thumb1View.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 zoomImageFromThumb(thumb1View, R.drawable.icon_qwd_logo);
             }
         });
-
         // Retrieve and cache the system's default "short" animation time.
         mShortAnimationDuration = getResources().getInteger(
                 android.R.integer.config_shortAnimTime);
