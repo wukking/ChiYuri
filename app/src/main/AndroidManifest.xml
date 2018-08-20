@@ -22,7 +22,8 @@
         </activity>
         <activity android:name=".ui.activity.CodeActivity" />
         <activity android:name=".ui.activity.AnimationActivity" />
-        <activity android:name=".ui.activity.CardFlipAnimationActivity"></activity>
+        <activity android:name=".ui.activity.CardFlipAnimationActivity" />
+        <activity android:name=".ui.activity.ZoomAnimationActivity"></activity>
     </application>
 
 </manifest>

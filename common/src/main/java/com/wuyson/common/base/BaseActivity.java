@@ -1,5 +1,6 @@
 package com.wuyson.common.base;
 
+import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
@@ -26,6 +27,7 @@ import butterknife.Unbinder;
 public abstract class BaseActivity extends AppCompatActivity {
     protected String tag = this.getClass().getSimpleName();
     private Unbinder butterKnife;
+    protected Context mContext;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         doBeforeSetContentView();
         setContentView(setContentViewId());
         butterKnife = ButterKnife.bind(this);
+        mContext = this;
         initView(savedInstanceState);
     }
 
