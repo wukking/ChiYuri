@@ -2,6 +2,7 @@ package com.wuyson.common.util;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.util.DisplayMetrics;
@@ -126,6 +127,18 @@ public class DisplayUtils {
             e.printStackTrace();
         }
         return statusBarHeight;
+    }
+
+    /**
+     * 获取ActionBar高度
+     * @param context 上下文
+     * @return 高度
+     */
+    public static int getActionBarSize(Context context){
+        TypedArray typedArray = context.obtainStyledAttributes(new int[] { android.R.attr.actionBarSize });
+        int barHeight = (int) typedArray.getDimension(0, 0);
+        typedArray.recycle();
+        return barHeight;
     }
 
     /**
