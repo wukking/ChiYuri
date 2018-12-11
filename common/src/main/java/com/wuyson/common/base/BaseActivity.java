@@ -25,7 +25,7 @@ import butterknife.Unbinder;
  * @date : 2018/5/18-15:12
  */
 public abstract class BaseActivity extends AppCompatActivity {
-    protected String tag = this.getClass().getSimpleName();
+    protected String TAG = this.getClass().getSimpleName();
     private Unbinder butterKnife;
     protected Context mContext;
 

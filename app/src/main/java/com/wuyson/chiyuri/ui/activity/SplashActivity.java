@@ -83,9 +83,9 @@ public class SplashActivity extends Activity {
         int curY = height / 2 + imgHeight / 2;
         int dy = (height - imgHeight) / 2;
         AnimatorSet set = new AnimatorSet();
-        ObjectAnimator animatorTranslate = ObjectAnimator.ofFloat(imgIcon, "translationY", 0, dy - 100);
-        ObjectAnimator animatorScaleX = ObjectAnimator.ofFloat(imgIcon, "ScaleX", 1f, 0.2f);
-        ObjectAnimator animatorScaleY = ObjectAnimator.ofFloat(imgIcon, "ScaleY", 1f, 0.2f);
+        ObjectAnimator animatorTranslate = ObjectAnimator.ofFloat(imgIcon, "translationY", 0, dy - 150);
+        ObjectAnimator animatorScaleX = ObjectAnimator.ofFloat(imgIcon, "ScaleX", 1f, 0.4f);
+        ObjectAnimator animatorScaleY = ObjectAnimator.ofFloat(imgIcon, "ScaleY", 1f, 0.4f);
         ObjectAnimator animatorAlpha = ObjectAnimator.ofFloat(imgIcon, "alpha", 1f, 0.5f, 1f);
         set.play(animatorTranslate)
                 .with(animatorScaleX).with(animatorScaleY).with(animatorAlpha);

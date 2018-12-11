@@ -6,6 +6,6 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/icon_qwd_logo" />
+            android:src="@drawable/icon_win_bg" />
     </item>
 </layer-list>

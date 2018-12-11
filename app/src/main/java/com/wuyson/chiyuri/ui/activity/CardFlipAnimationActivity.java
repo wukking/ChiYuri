@@ -17,6 +17,9 @@ import android.widget.TextView;
 import com.wuyson.chiyuri.R;
 import com.wuyson.common.base.BaseActivity;
 
+/**
+ * 双面卡片效果
+ */
 public class CardFlipAnimationActivity extends BaseActivity {
     private boolean mShowingBack;
     private CardBackFragment mCardBackFragment;
